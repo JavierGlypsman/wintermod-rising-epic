@@ -10,17 +10,16 @@ cls
 
 echo Tervetuloa Jussin tiedostonsiirtorulettiin!
 echo Tänään jännitämme, saavatko pelaajat tiedostonsa paikoilleen, vai menevätkö bitit solmuun!
+echo Tämä ohjelma siirtää Steamiin asennetusta Talvisota-modista tarvittavat tiedostot Epic Gamesista asennettuun Rising Stormiin.
 echo:
 
 :: Kysytään käyttäjältä pelin ja modin sijainnit ilman viimeistä takakenoa (koska en jaksanut alkaa putsailemaan inputteja)
-echo Copypasteta pelin sijainti tähän ilman
+echo Copypasteta pelin sijainti (Epic Games!) tähän ilman
 set /p pelin-sijainti=viimeistä takakenoa eli \ -merkkiä (esim. C:\EpicGames\RS2V): 
 echo Pelin sijainniksi määritetty %pelin-sijainti%
 echo:
-
-::modi: F:\SteamGames\steamapps\common\Rising Storm 2
-echo Copypasteta pelin sijainti tähän ilman
-set /p modin-sijainti=viimeistä takakenoa eli \ -merkkiä (esim. F:\SteamGames\steamapps\common\Rising Storm 2): 
+echo Copypasteta modin sijainti (Steam!) tähän ilman
+set /p modin-sijainti=viimeistä takakenoa eli \ -merkkiä (esim. C:\SteamGames\steamapps\common\Rising Storm 2): 
 echo Modin sijainniksi määritetty %modin-sijainti%
 echo:
 
@@ -94,6 +93,7 @@ echo:
 echo Kaikki tiedostot kopioitu, olitpa reipas ja taitava!
 echo Kiitos että käytit tuotettani, olet ihana!
 echo Voit nyt sulkea ikkunan.
+echo Ai niin, mikäli modi tämän jälkeen toimii, mutta lakkaa myöhemmin toimimasta, päivitä Talvisota-modi Steamista ja aja tämä uudestaan. Kthxbye!
 pause >nul
 exit /B 0
 )
