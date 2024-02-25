@@ -26,54 +26,61 @@ echo:
 
 
 ::Kopioidaan tiedostot
-xcopy "%modin-sijainti%\Binaries\Win64\LaunchWinterWar.exe" "%pelin-sijainti%\Binaries\Win64\"
+xcopy "%modin-sijainti%\Binaries\Win64\LaunchWinterWar.exe" "%pelin-sijainti%\Binaries\Win64\" /Y /R
 IF %ERRORLEVEL% NEQ 0 ( 
    echo:
    echo Jotain meni pieleen, sori siitä.
    echo Closing down.
    pause >nul
+   exit /B
 )
-xcopy "%modin-sijainti%\ROGame\BrewedPC\Maps\WinterWar\*.*" "%pelin-sijainti%\ROGame\BrewedPC\Maps\"
+xcopy "%modin-sijainti%\ROGame\BrewedPC\Maps\WinterWar\*.*" "%pelin-sijainti%\ROGame\BrewedPC\Maps\" /Y /R
 IF %ERRORLEVEL% NEQ 0 ( 
    echo:
    echo Jotain meni pieleen, sori siitä.
    echo Closing down.
    pause >nul
+   exit /B
 )
-xcopy "%modin-sijainti%\ROGame\BrewedPC\Packages\WinterWar\*.*" "%pelin-sijainti%\ROGame\BrewedPC\Packages\"
+xcopy "%modin-sijainti%\ROGame\BrewedPC\Packages\WinterWar\*.*" "%pelin-sijainti%\ROGame\BrewedPC\Packages\" /Y /R
 IF %ERRORLEVEL% NEQ 0 ( 
    echo:
    echo Jotain meni pieleen, sori siitä.
    echo Closing down.
    pause >nul
+   exit /B
 )
-xcopy "%modin-sijainti%\ROGame\BrewedPC\WwiseAudio\Windows\English(US)\*.*" "%pelin-sijainti%\ROGame\BrewedPC\WwiseAudio\Windows\English(US)\"
+xcopy "%modin-sijainti%\ROGame\BrewedPC\WwiseAudio\Windows\English(US)\*.*" "%pelin-sijainti%\ROGame\BrewedPC\WwiseAudio\Windows\English(US)\" /Y /R
 IF %ERRORLEVEL% NEQ 0 ( 
    echo:
    echo Jotain meni pieleen, sori siitä.
    echo Closing down.
    pause >nul
+   exit /B
 )
-xcopy "%modin-sijainti%\ROGame\BrewedPC\WinterWar.u" "%pelin-sijainti%\ROGame\BrewedPC\"
+xcopy "%modin-sijainti%\ROGame\BrewedPC\WinterWar.u" "%pelin-sijainti%\ROGame\BrewedPC\" /Y /R
 IF %ERRORLEVEL% NEQ 0 ( 
    echo:
    echo Jotain meni pieleen, sori siitä.
    echo Closing down.
    pause >nul
+   exit /B
 )
-xcopy "%modin-sijainti%\ROGame\Config\*.*" "%pelin-sijainti%\ROGame\Config\"
+xcopy "%modin-sijainti%\ROGame\Config\*.*" "%pelin-sijainti%\ROGame\Config\" /Y /R
 IF %ERRORLEVEL% NEQ 0 ( 
    echo:
    echo Jotain meni pieleen, sori siitä.
    echo Closing down.
    pause >nul
+   exit /B
 )
-xcopy "%modin-sijainti%\ROGame\Localization\INT\WinterWar.int" "%pelin-sijainti%\ROGame\Localization\INT\"
+xcopy "%modin-sijainti%\ROGame\Localization\INT\WinterWar.int" "%pelin-sijainti%\ROGame\Localization\INT\" /Y /R
 IF %ERRORLEVEL% NEQ 0 ( 
    echo:
    echo Jotain meni pieleen, sori siitä.
    echo Closing down.
    pause >nul
+   exit /B
 )
 
 IF %ERRORLEVEL% == 0 ( 
@@ -88,4 +95,5 @@ echo Kaikki tiedostot kopioitu, olitpa reipas ja taitava!
 echo Kiitos että käytit tuotettani, olet ihana!
 echo Voit nyt sulkea ikkunan.
 pause >nul
+exit /B 0
 )
