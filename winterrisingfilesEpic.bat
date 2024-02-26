@@ -15,14 +15,32 @@ echo:
 
 :: Kysytään käyttäjältä pelin ja modin sijainnit ilman viimeistä takakenoa (koska en jaksanut alkaa putsailemaan inputteja)
 echo Copypasteta pelin sijainti (Epic Games!) tähän ilman
-set /p pelin-sijainti=viimeistä takakenoa eli \ -merkkiä (esim. C:\EpicGames\RS2V): 
+set /p "pelin-sijainti=viimeistä takakenoa eli \ -merkkiä (esim. C:\EpicGames\RS2V): "
+
+:: Tarkistetaan, onko tietty pelin tiedosto löydettävissä annetun sijainnin kautta ja pysäytetään, mikäli tiedostoa ei löydy.
+IF NOT EXIST "%pelin-sijainti%\Binaries\Windows\WindowsTools.dll" (
+   echo "Näyttäisi siltä, että peliä ei ole asennettu annettuun sijaintiin %pelin-sijainti%. Yritä uudelleen."
+   pause >nul
+   exit /B
+)
+
+echo:
 echo Pelin sijainniksi määritetty %pelin-sijainti%
 echo:
 echo Copypasteta modin sijainti (Steam!) tähän ilman
-set /p modin-sijainti=viimeistä takakenoa eli \ -merkkiä (esim. C:\SteamGames\steamapps\common\Rising Storm 2): 
+set /p "modin-sijainti=viimeistä takakenoa eli \ -merkkiä (esim. C:\SteamGames\steamapps\common\Rising Storm 2): "
+
+:: Tarkistetaan, onko tietty modin tiedosto löydettävissä annetun sijainnin kautta ja pysäytetään, mikäli tiedostoa ei löydy.
+IF NOT EXIST "%modin-sijainti%\Binaries\Win64\LaunchWinterWar.exe" (
+   echo "Näyttäisi siltä, että modia ei ole asennettu annettuun sijaintiin %modin-sijainti%. Yritä uudelleen."
+   pause >nul
+   exit /B
+)
+
+echo:
 echo Modin sijainniksi määritetty %modin-sijainti%
 echo:
-
+timeout /t 1 >nul
 
 ::Kopioidaan tiedostot
 xcopy "%modin-sijainti%\Binaries\Win64\LaunchWinterWar.exe" "%pelin-sijainti%\Binaries\Win64\" /Y /R
